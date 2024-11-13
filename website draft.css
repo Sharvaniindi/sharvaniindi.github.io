@@ -1,0 +1,194 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #121212;
+    color: #ddd;
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation Bar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #121212;
+    padding: 10px 0;
+    text-align: center;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #f76c6c;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    background: #121212;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 3.25rem;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-top: 10px;
+}
+
+.cta-button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #f76c6c;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* About Section */
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 60px 10%;
+    align-items: center;
+}
+
+.about h2 {
+    color: white;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.image img {
+    width: 70%;
+    border-radius: 10px;
+    left: 70%
+}
+
+/* Portfolio Section */
+.portfolio {
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.portfolio h2 {
+    color: white;
+}
+
+.portfolio-grid {
+    display: flex; /* Use Flexbox for layout */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    gap: 50px; /* 50px gap between project items */
+    justify-content: space-between; /* Space out items evenly */
+    margin: 20px; /* Optional: margin around the grid */
+}
+
+.project-item {
+    flex: 1 1 45%; /* Allow items to grow and take 45% of width */
+    min-width: 300px; /* Minimum width for each project item */
+    max-width: 600px; /* Maximum width for each project item */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add shadow */
+    border-radius: 8px; /* Optional: rounded corners */
+    overflow: hidden; /* Hide overflow */
+}
+
+.project-item h3 {
+    text-align: center; /* Center the title */
+}
+
+.project-item iframe {
+    width: 100%; /* Full width */
+    height: 400px; /* Set height to a specific value */
+}
+
+.project-item:hover img {
+    transform: scale(1.1);
+}
+
+.project-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-item:hover .project-overlay {
+    opacity: 1;
+}
+
+/* Contact Section */
+.contact {
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.contact h2 {
+    color: white;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 500px;
+    margin: auto;
+}
+
+.contact input, .contact textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #222;
+    color: white;
+}
+
+.contact button {
+    padding: 10px 20px;
+    background-color: #f76c6c;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-grid {
+        flex-direction: column; /* Stack project items vertically on smaller screens */
+        gap: 30px; /* Adjust gap between stacked items */
+    }
+
+    .project-item {
+        max-width: 100%; /* Allow project items to take full width */
+    }
+}
