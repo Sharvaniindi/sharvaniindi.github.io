@@ -13,10 +13,29 @@
         }
 
         body {
-            background: #000000;  /* Changed to pure black */
+            background: #000000;
             color: #fff;
             overflow-x: hidden;
             margin: 0;
+            position: relative;
+        }
+
+        .bubble {
+            position: fixed;
+            background: rgba(100, 255, 218, 0.1);
+            border-radius: 50%;
+            animation: float 8s infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(0);
+            }
+            100% {
+                transform: translateY(-100px) scale(1);
+            }
         }
 
         .navbar {
@@ -29,7 +48,7 @@
             justify-content: center;
             gap: 2rem;
             z-index: 1000;
-            background: rgba(0, 0, 0, 0.95);  /* Updated to match new background */
+            background: rgba(0, 0, 0, 0.95);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
@@ -53,6 +72,8 @@
             align-items: center;
             text-align: center;
             padding: 6rem 2rem 2rem 2rem;
+            position: relative;
+            z-index: 1;
         }
 
         .wave {
@@ -64,7 +85,7 @@
 
         .wave span {
             display: inline-block;
-            animation: wave 2s infinite;
+            animation: wave 3s infinite;
         }
 
         @keyframes wave {
@@ -72,7 +93,6 @@
             50% { transform: translateY(-15px); }
         }
 
-        /* Individual letter delays */
         .wave span:nth-child(1) { animation-delay: 0.1s; }
         .wave span:nth-child(2) { animation-delay: 0.2s; }
         .wave span:nth-child(3) { animation-delay: 0.3s; }
@@ -94,7 +114,7 @@
 
         .hero p {
             font-size: 1.5rem;
-            color: #a8a8a8;  /* Updated for better contrast on black */
+            color: #a8a8a8;
             margin-bottom: 2rem;
         }
 
@@ -120,6 +140,8 @@
             align-items: center;
             padding: 5rem 10%;
             gap: 4rem;
+            position: relative;
+            z-index: 1;
         }
 
         .about-text {
@@ -136,7 +158,25 @@
         .about-text p {
             font-size: 1.2rem;
             line-height: 1.6;
-            color: #a8a8a8;  /* Updated for better contrast on black */
+            color: #a8a8a8;
+        }
+        .skills {
+            margin-top: 40px;
+            padding: 20px;
+            border: 10px solid #64ffda;
+            border-radius: 10px;
+            background-color: #64ffda;
+        }
+        .skills ul {
+            list-style-type: none;
+            padding: 10px;
+            color:#000000
+            align-items: center;
+        }
+        .skills li {
+            padding: 5px 0;
+            color:#000000;
+            align-items: center;
         }
 
         .image {
@@ -156,6 +196,8 @@
         .portfolio {
             padding: 5rem 10%;
             min-height: 100vh;
+            position: relative;
+            z-index: 1;
         }
 
         .portfolio h2 {
@@ -178,7 +220,7 @@
             border-radius: 10px;
             overflow: hidden;
             aspect-ratio: 16/9;
-            background: #111;  /* Slightly lighter than black for contrast */
+            background: #111;
             border: 1px solid #333;
         }
 
@@ -222,6 +264,8 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
         .contact h2 {
@@ -282,14 +326,24 @@
             .portfolio, .contact {
                 padding: 3rem 5%;
             }
-
-            .about-text, .image {
-                max-width: 100%;
-            }
         }
     </style>
 </head>
 <body>
+    <script>
+        for (let i = 0; i < 50; i++) {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            const size = Math.random() * 60 + 20;
+            bubble.style.width = size + 'px';
+            bubble.style.height = size + 'px';
+            bubble.style.left = Math.random() * 100 + '%';
+            bubble.style.animationDelay = Math.random() * 5 + 's';
+            bubble.style.animationDuration = Math.random() * 10 + 8 + 's';
+            document.body.appendChild(bubble);
+        }
+    </script>
+
     <nav class="navbar">
         <a href="#home">Home</a>
         <a href="#about">About</a>
@@ -301,22 +355,10 @@
         <h1 class="wave">
             <span>H</span>
             <span>i</span>
-            <span>,</span>
-            <span> </span>
-            <span>I</span>
-            <span>'</span>
-            <span>m</span>
-            <span> </span>
-            <span>S</span>
-            <span>h</span>
-            <span>a</span>
-            <span>r</span>
-            <span>v</span>
-            <span>a</span>
-            <span>n</span>
-            <span>i</span>
-            <span> </span>
-            <span>👋</span>
+            <span>,</span><span> </span>
+            <span>I</span><span>'</span><span>m</span><span> </span>
+            <span>S</span><span>h</span><span>a</span><span>r</span><span>v</span><span>a</span><span>n</span><span>i</span>
+            <span> </span><span>👋</span>
         </h1>
         <p>Aspiring Designer in UX/UI & Product Design</p>
         <a href="#portfolio" class="cta-button">View My Work</a>
@@ -326,7 +368,19 @@
         <div class="about-text">
             <h2>About Me</h2>
             <p>I am an aspiring designer currently studying at FLAME University. I get to explore UX/UI, product design, and coding. I am passionate about creating meaningful experiences and am dedicated to refining my skills to make a positive impact.</p>
+                
+            <div class="skills">
+            
+                    <h3 style="text-align: center; color: #000000;"  >My Skills</h3>
+            <ul>
+                <li>Problem Solving</li>
+                <li>Figma</li>
+                <li>Photoshop</li>
+                <li>Illustrator</li>
+                <li>Video Editing</li>
+            </ul>
         </div>
+    </div>
         <div class="image">
             <img src="image.png" alt="Picture of Sharvani">
         </div>
@@ -343,7 +397,6 @@
             <div class="project-item">
                 <iframe src="https://editor.p5js.org/sharvani.indireddy/full/Lw2k3l8Y5" width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen></iframe>
                 <h3 style="color: #64ffda; margin-bottom: 1rem;">p5.js Project</h3>
-                
             </div>
 
             <div class="project-item">
